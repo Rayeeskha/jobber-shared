@@ -50,11 +50,11 @@
     "winston-elasticsearch": "^0.19.0"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.29.2",
-    "@babel/preset-typescript": "^7.28.5",
-    "@types/express": "^5.0.6",
-    "@types/jsonwebtoken": "^9.0.10",
+    "@babel/cli": "^7.24.1",
+    "@babel/core": "^7.24.1",
+    "@babel/preset-env": "^7.24.3",
+    "@babel/preset-typescript": "^7.24.1",
     "cross-env": "^10.1.0",
-    "typescript": "^6.0.2"
+    "typescript": "^5.4.3"
   }
 }

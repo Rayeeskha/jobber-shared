@@ -3,8 +3,6 @@ name: Publish
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
 
 jobs:
   publish:
@@ -15,35 +13,29 @@ jobs:
       packages: write
 
     steps:
-      # ✅ Checkout code
+      # 1. Checkout
       - name: Checkout
         uses: actions/checkout@v4
 
-      # ✅ Setup Node
-      - name: Setup Node.js
+      # 2. Setup Node
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "24.x"
           registry-url: "https://npm.pkg.github.com"
-          scope: "@Rayeeskha"   # ✅ FIXED (match your package name)
+          scope: "@Rayeeskha"
 
-      # ✅ Install dependencies (including devDependencies)
+      # 3. Install dependencies (FIXED)
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --include=dev
 
-      # ✅ Build project
-      - name: Build project
+      # 4. Build project
+      - name: Build
         run: npm run build
 
-      # ✅ Configure npm for GitHub Packages
-      - name: Configure npm auth
-        run: |
-          echo "@Rayeeskha:registry=https://npm.pkg.github.com/" > build/.npmrc
-          echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" >> build/.npmrc
-
-      # ✅ Publish package
-      - name: Publish package
-        run: npm publish --provenance --access public
+      # 5. Publish
+      - name: Publish
+        run: npm publish --access public
         working-directory: ./build
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}   # ✅ Use your NPM token
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
