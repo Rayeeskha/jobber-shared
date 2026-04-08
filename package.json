@@ -7,11 +7,9 @@
     "node": ">=18"
   },
   "scripts": {
-    "build": "npm run build:cjs && npm run build:esm && tsc --outDir build/src",
-
-    "build:cjs": "cross-env BABEL_ENV=cjs npx babel src --presets=@babel/preset-env,@babel/preset-typescript --extensions .ts,.tsx --ignore src/**/*.specs.tsx --out-dir build/cjs --source-maps",
-
-    "build:esm": "cross-env BABEL_ENV=esm npx babel src --presets=@babel/preset-env,@babel/preset-typescript --extensions .ts,.tsx --ignore src/**/*.specs.tsx --out-dir build/esm --source-maps"
+    "build": "npm run build:cjs && npm run build:esm && tsc --outDir build/src && node src/scripts/build-package.js",
+    "build:cjs": "cross-env NODE_ENV=production BABEL_ENV=cjs npx babel src --presets ./src/scripts/babel-preset.js --extensions .ts,.tsx --ignore src/**/*.specs.tsx --out-dir build/cjs --source-maps",
+    "build:esm": "cross-env NODE_ENV=production BABEL_ENV=esm npx babel src --presets ./src/scripts/babel-preset.js --extensions .ts,.tsx --ignore src/**/*.specs.tsx --out-dir build/esm --source-maps"
   },
   "prettier": {
     "printWidth": 80,
@@ -52,13 +50,11 @@
     "winston-elasticsearch": "^0.19.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.24.8",
-    "@babel/core": "^7.24.8",
-    "@babel/preset-env": "^7.24.8",
-    "@babel/preset-typescript": "^7.24.7",
+    "@babel/preset-env": "^7.29.2",
+    "@babel/preset-typescript": "^7.28.5",
     "@types/express": "^5.0.6",
     "@types/jsonwebtoken": "^9.0.10",
     "cross-env": "^10.1.0",
-    "typescript": "^5.6.3"
+    "typescript": "^6.0.2"
   }
 }
