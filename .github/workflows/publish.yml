@@ -19,9 +19,9 @@ jobs:
           scope: "@uzochukwueddie"
       - run: npm install
       - run: npm run build
-      # - run: |
-      #     echo @Rayeeskha:https://npm.pkg.github.com/ > build/.npmrc
-      #     echo '//npm.pkg.github.com/:_authToken=${NPM_TOKEN}' >> build/.npmrc
+      - run: |
+          echo @Rayeeskha:https://npm.pkg.github.com/ > build/.npmrc
+          echo '//npm.pkg.github.com/:_authToken=${NPM_TOKEN}' >> build/.npmrc
       - run: npm publish --provenance --access public # this makes the package public
         working-directory: ./build
         env:
