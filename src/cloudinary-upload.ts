@@ -1,4 +1,7 @@
-import cloudinary, { UploadApiErrorResponse, UploadApiResponse } from 'cloudinary';
+import cloudinary, {
+  UploadApiErrorResponse,
+  UploadApiResponse,
+} from 'cloudinary';
 
 export function uploads(
   file: string,
@@ -13,19 +16,18 @@ export function uploads(
         public_id,
         overwrite,
         invalidate,
-        chunk_size: 500000,
-        resource_type: 'video', // video
+        resource_type: 'auto', // zip, images
       },
-      (error, result) => {
-        if (error) {
-          resolve(error);
-        } else {
-          resolve(result);
-        }
+      (
+        error: UploadApiErrorResponse | undefined,
+        result: UploadApiResponse | undefined
+      ) => {
+        if (error) resolve(error);
+        resolve(result);
       }
     );
   });
-};
+}
 
 export function videoUpload(
   file: string,
@@ -40,15 +42,16 @@ export function videoUpload(
         public_id,
         overwrite,
         invalidate,
-        resource_type: 'auto', // zip, pdf, doc, docx, xls, xlsx, ppt, pptx
+        chunk_size: 50000,
+        resource_type: 'video',
       },
-      (error, result) => {
-        if (error) {
-          resolve(error);
-        } else {
-          resolve(result);
-        }
+      (
+        error: UploadApiErrorResponse | undefined,
+        result: UploadApiResponse | undefined
+      ) => {
+        if (error) resolve(error);
+        resolve(result);
       }
     );
   });
-} ;
+}
