@@ -1,6 +1,6 @@
 {
   "name": "@Rayeeskha/jobber-shared",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "MIT",
   "description": "Helpers library for Jobber app",
 
@@ -12,7 +12,7 @@
 
   "main": "build/cjs/index.js",
   "module": "build/esm/index.js",
-  "types": "build/src/index.d.ts",
+  "types": "build/cjs/index.d.ts",
 
   "engines": {
     "node": ">=18"
