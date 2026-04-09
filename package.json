@@ -1,43 +1,48 @@
 {
   "name": "@Rayeeskha/jobber-shared",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "license": "MIT",
   "type": "module",
   "description": "Helpers library for Jobber app",
+
   "author": "Rayees khan",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Rayeeskha/jobber-shared.git"
   },
+
   "main": "build/cjs/index.js",
   "module": "build/esm/index.js",
   "types": "build/src/index.d.ts",
+
   "exports": {
     ".": {
       "types": "./build/src/index.d.ts",
       "import": "./build/esm/index.js",
       "require": "./build/cjs/index.js"
-    },
-    "./icons": {
-      "types": "./build/src/icons/index.d.ts",
-      "import": "./build/esm/icons/index.js",
-      "require": "./build/cjs/icons/index.js"
     }
   },
+
   "files": [
     "build"
   ],
+
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
+
   "engines": {
     "node": ">=18"
   },
+
   "scripts": {
     "build": "npm run build:cjs && npm run build:esm && tsc --outDir build/src && node src/scripts/build-package.cjs",
+
     "build:cjs": "cross-env NODE_ENV=production BABEL_ENV=cjs babel src --presets ./src/scripts/babel-preset.cjs --extensions .ts,.tsx --ignore src/**/*.specs.tsx --out-dir build/cjs --source-maps",
+
     "build:esm": "cross-env NODE_ENV=production BABEL_ENV=esm babel src --presets ./src/scripts/babel-preset.cjs --extensions .ts,.tsx --ignore src/**/*.specs.tsx --out-dir build/esm --source-maps"
   },
+
   "dependencies": {
     "@elastic/elasticsearch": "^9.3.4",
     "cloudinary": "^2.9.0",
@@ -49,6 +54,7 @@
     "winston": "^3.19.0",
     "winston-elasticsearch": "^0.19.0"
   },
+
   "devDependencies": {
     "@babel/cli": "^7.28.3",
     "@babel/core": "^7.28.5",
