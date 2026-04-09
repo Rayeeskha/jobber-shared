@@ -13,11 +13,9 @@ jobs:
       packages: write
 
     steps:
-      # 1. Checkout
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 2. Setup Node
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -25,17 +23,13 @@ jobs:
           registry-url: "https://npm.pkg.github.com"
           scope: "@Rayeeskha"
 
-      # 3. Install dependencies (FIXED)
       - name: Install dependencies
         run: npm ci --include=dev
 
-      # 4. Build project
       - name: Build
         run: npm run build
 
-      # 5. Publish
       - name: Publish
-        run: npm publish --access public
-        # working-directory: ./build
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
