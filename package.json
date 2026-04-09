@@ -1,6 +1,6 @@
 {
   "name": "@Rayeeskha/jobber-shared",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "license": "MIT",
   "type": "module",
   "description": "Helpers library for Jobber app",
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/Rayeeskha/jobber-shared.git"
   },
 
-  "main": "build/cjs/index.js",
+  "main": "build/cjs/index.cjs",
   "module": "build/esm/index.js",
   "types": "build/src/index.d.ts",
 
@@ -19,7 +19,8 @@
     ".": {
       "types": "./build/src/index.d.ts",
       "import": "./build/esm/index.js",
-      "require": "./build/cjs/index.js"
+      "require": "./build/cjs/index.cjs",
+      "default": "./build/esm/index.js"
     }
   },
 
@@ -36,8 +37,7 @@
   },
 
   "scripts": {
-    "build": "npm run build:cjs && npm run build:esm && tsc --outDir build/src && node src/scripts/build-package.cjs",
-
+    "build": "npm run build:cjs && node src/scripts/rename-cjs.cjs && npm run build:esm && tsc --outDir build/src && node src/scripts/build-package.cjs",
     "build:cjs": "cross-env NODE_ENV=production BABEL_ENV=cjs babel src --presets ./src/scripts/babel-preset.cjs --extensions .ts,.tsx --ignore src/**/*.specs.tsx --out-dir build/cjs --source-maps",
 
     "build:esm": "cross-env NODE_ENV=production BABEL_ENV=esm babel src --presets ./src/scripts/babel-preset.cjs --extensions .ts,.tsx --ignore src/**/*.specs.tsx --out-dir build/esm --source-maps"
