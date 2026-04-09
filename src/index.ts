@@ -1,5 +1,4 @@
-// ✅ TYPES (interfaces) — use "export type"
-export type {
+export {
   IAuthPayload,
   IAuthDocument,
   IAuthBuyerMessageDetails,
@@ -15,10 +14,8 @@ export type {
   IAuthResponse,
   IAuthUser,
 } from './auth.interface';
-
-export type { IBuyerDocument, IReduxBuyer } from './buyer.interface';
-
-export type {
+export { IBuyerDocument, IReduxBuyer } from './buyer.interface';
+export {
   IConversationDocument,
   IMessageDocument,
   IMessageDetails,
@@ -27,8 +24,7 @@ export type {
   IChatBuyerProps,
   IChatMessageProps,
 } from './chat.interface';
-
-export type {
+export {
   GigType,
   ICreateGig,
   ISellerGig,
@@ -40,8 +36,7 @@ export type {
   IGigInfo,
   IGigTopProps,
 } from './gig.interface';
-
-export type {
+export {
   IOrderNotifcation,
   IOffer,
   IExtendedDelivery,
@@ -51,16 +46,14 @@ export type {
   IOrderMessage,
   IOrderDocument,
 } from './order.interface';
-
-export type {
+export {
   IReviewMessageDetails,
   IRatingTypes,
   IRatingCategories,
   IRatingCategoryItem,
   IReviewDocument,
 } from './review.interface';
-
-export type {
+export {
   ISearchResult,
   IHitsTotal,
   IQueryList,
@@ -68,8 +61,7 @@ export type {
   ITerm,
   IPaginateProps,
 } from './search.interface';
-
-export type {
+export {
   SellerType,
   ILanguage,
   IExperience,
@@ -77,13 +69,8 @@ export type {
   ICertificate,
   ISellerDocument,
 } from './seller.interface';
-
-export type { IEmailLocals } from './email.interface';
-
-
-// ✅ RUNTIME EXPORTS (functions / classes / actual JS)
+export { IEmailLocals } from './email.interface';
 export { uploads, videoUpload } from './cloudinary-upload';
-
 export {
   IErrorResponse,
   IError,
@@ -93,17 +80,14 @@ export {
   NotAuthorizedError,
   FileTooLargeError,
   ServerError,
-  ErrnoException,
+  ErrnoException
 } from './error-handler';
-
 export { verifyGatewayRequest } from './gateway-middleware';
-
 export { winstonLogger } from './logger';
-
 export {
   firstLetterUppercase,
   lowerCase,
   toUpperCase,
   isEmail,
-  isDataURL,
+  isDataURL
 } from './helpers';
