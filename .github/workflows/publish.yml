@@ -13,28 +13,29 @@ jobs:
       packages: write
 
     steps:
+      # 1. Checkout
       - name: Checkout
         uses: actions/checkout@v4
 
+      # 2. Setup Node
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "24.x"
+          registry-url: "https://npm.pkg.github.com"
+          scope: "@Rayeeskha"
 
+      # 3. Install dependencies (FIXED)
       - name: Install dependencies
         run: npm ci --include=dev
 
+      # 4. Build project
       - name: Build
         run: npm run build
 
-      - name: Setup .npmrc
-        run: |
-          echo "@Rayeeskha:registry=https://npm.pkg.github.com/" >> ~/.npmrc
-          echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" >> ~/.npmrc
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
+      # 5. Publish
       - name: Publish
-        run: npm publish
+        run: npm publish --access public
+        # working-directory: ./build
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
