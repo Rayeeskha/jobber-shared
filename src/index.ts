@@ -1,4 +1,5 @@
-export {
+// ✅ TYPES (interfaces) — use "export type"
+export type {
   IAuthPayload,
   IAuthDocument,
   IAuthBuyerMessageDetails,
@@ -14,8 +15,10 @@ export {
   IAuthResponse,
   IAuthUser,
 } from './auth.interface';
-export { IBuyerDocument, IReduxBuyer } from './buyer.interface';
-export {
+
+export type { IBuyerDocument, IReduxBuyer } from './buyer.interface';
+
+export type {
   IConversationDocument,
   IMessageDocument,
   IMessageDetails,
@@ -24,7 +27,8 @@ export {
   IChatBuyerProps,
   IChatMessageProps,
 } from './chat.interface';
-export {
+
+export type {
   GigType,
   ICreateGig,
   ISellerGig,
@@ -36,7 +40,8 @@ export {
   IGigInfo,
   IGigTopProps,
 } from './gig.interface';
-export {
+
+export type {
   IOrderNotifcation,
   IOffer,
   IExtendedDelivery,
@@ -46,14 +51,16 @@ export {
   IOrderMessage,
   IOrderDocument,
 } from './order.interface';
-export {
+
+export type {
   IReviewMessageDetails,
   IRatingTypes,
   IRatingCategories,
   IRatingCategoryItem,
   IReviewDocument,
 } from './review.interface';
-export {
+
+export type {
   ISearchResult,
   IHitsTotal,
   IQueryList,
@@ -61,7 +68,8 @@ export {
   ITerm,
   IPaginateProps,
 } from './search.interface';
-export {
+
+export type {
   SellerType,
   ILanguage,
   IExperience,
@@ -69,8 +77,13 @@ export {
   ICertificate,
   ISellerDocument,
 } from './seller.interface';
-export { IEmailLocals } from './email.interface';
+
+export type { IEmailLocals } from './email.interface';
+
+
+// ✅ RUNTIME EXPORTS (functions / classes / actual JS)
 export { uploads, videoUpload } from './cloudinary-upload';
+
 export {
   IErrorResponse,
   IError,
@@ -82,8 +95,11 @@ export {
   ServerError,
   ErrnoException,
 } from './error-handler';
+
 export { verifyGatewayRequest } from './gateway-middleware';
+
 export { winstonLogger } from './logger';
+
 export {
   firstLetterUppercase,
   lowerCase,
