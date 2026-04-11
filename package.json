@@ -1,5 +1,5 @@
 {
-  "version": "0.3.7",
+  "version": "0.3.8",
   "license": "MIT",
   "types": "./src/index.d.ts",
   "description": "Helpers library for Jobber app",
@@ -15,11 +15,11 @@
     "trailingComma": "es5"
   },
   "keywords": [],
-  "name": "@Rayeeskha/jobber-shared",
+  "name": "@rayeeskha/jobber-shared",
   "author": "Uzochukwu Eddie Odozi",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Rayeeskha/jobber-shared.git"
+    "url": "git+https://github.com/rayeeskha/jobber-shared.git"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
