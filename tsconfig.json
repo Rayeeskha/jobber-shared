@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    // "declaration": true,
+    "declaration": true,
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
