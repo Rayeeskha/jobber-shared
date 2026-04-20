@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    // "declaration": true,
-    // "experimentalDecorators": true,
+    "declaration": true,
+    "experimentalDecorators": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "importHelpers": true,
