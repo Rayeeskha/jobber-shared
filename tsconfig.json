@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
-    "declaration": true,
-    "experimentalDecorators": true,
+    // "declaration": true,
+    // "experimentalDecorators": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "importHelpers": true,
-    "lib": ["DOM", "esnext"],
+    // "lib": ["DOM", "esnext"],
     "module": "CommonJS",
-    "moduleResolution": "node",
+    // "moduleResolution": "node",
     "noEmitOnError": true,
     "outDir": "build",
     "rootDir": "./src",
@@ -18,7 +18,7 @@
     "forceConsistentCasingInFileNames": true,
     "pretty": true,
     "resolveJsonModule": true,
-    "ignoreDeprecations": "6.0",
+    // "ignoreDeprecations": "6.0",
   },
   "include": ["src"],
   "exclude": ["node_modules"]
